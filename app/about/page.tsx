@@ -82,8 +82,9 @@ export default function AboutPage() {
               </span>
             </h1>
             <p className="text-xl md:text-2xl text-gray-600 max-w-3xl mx-auto">
-              We're a passionate team dedicated to revolutionizing personal safety through innovative wearable technology.
+              We&apos;re a passionate team dedicated to revolutionizing personal safety through innovative wearable technology.
             </p>
+
           </motion.div>
         </div>
       </section>
@@ -102,8 +103,9 @@ export default function AboutPage() {
               Our Mission
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              At SafeBand, we believe everyone deserves to feel safe and protected. Our mission is to create innovative wearable technology that provides peace of mind, connecting you to help when you need it most. Through cutting-edge design and reliable technology, we're making the world a safer place, one wrist at a time.
+              At SafeBand, we believe everyone deserves to feel safe and protected. Our mission is to create innovative wearable technology that provides peace of mind, connecting you to help when you need it most. Through cutting-edge design and reliable technology, we&apos;re making the world a safer place, one wrist at a time.
             </p>
+
           </motion.div>
         </div>
       </section>
@@ -220,8 +222,9 @@ export default function AboutPage() {
               Join Us in Making the World Safer
             </h2>
             <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
-              Whether you're interested in our products, partnerships, or career opportunities, we'd love to hear from you.
+              Whether you&apos;re interested in our products, partnerships, or career opportunities, we&apos;d love to hear from you.
             </p>
+
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <Link
                 href="/"

@@ -14,7 +14,7 @@ const navigation = [
     href: '#docs',
     dropdown: [
       { name: 'About Us', href: '/about', description: 'Meet the team behind SafeBand' },
-      { name: 'Documentation', href: '#docs', description: 'Learn how to use SafeBand' },
+      { name: 'Documentation', href: '/docs/user-manual', description: 'Learn how to use SafeBand' },
       { name: 'Support', href: '#support', description: 'Get help and support' },
     ]
   },

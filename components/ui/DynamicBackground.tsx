@@ -82,8 +82,8 @@ export default function DynamicBackground() {
                     }
 
                     for (let b = 0; b <= limitB; b += resolution) {
-                        let x = isVertical ? a : b
-                        let y = isVertical ? b : a
+                        const x = isVertical ? a : b
+                        const y = isVertical ? b : a
 
                         let dx = x
                         let dy = y
