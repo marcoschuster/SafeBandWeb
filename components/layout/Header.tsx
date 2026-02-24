@@ -4,10 +4,27 @@ import React, { useState, useEffect } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { ShoppingCart, Menu, X } from 'lucide-react'
+import { useCart } from '@/context/CartContext'
 
 const navigation = [
-  { name: 'Products', href: '#products' },
-  { name: 'Community', href: '#community' },
+  {
+    name: 'Products',
+    href: '#products',
+    dropdown: [
+      { name: 'Mosquito Shield', href: '/products/scent-mosquito', description: 'Advanced protection against mosquitoes with natural oils' },
+      { name: 'Lavender Calm', href: '/products/scent-lavender', description: 'Relaxing lavender scent to reduce stress and anxiety' },
+      { name: 'Ocean Breeze', href: '/products/scent-ocean', description: 'Fresh and invigorating scent for an energy boost' },
+      { name: 'Forest Walk', href: '/products/scent-forest', description: 'Earthy and grounding woodsy aroma' },
+      { name: 'Mint Fresh', href: '/products/scent-mint', description: 'Cool and crisp mint for mental clarity' },
+    ]
+  },
+  {
+    name: 'Community',
+    href: '#community',
+    dropdown: [
+      { name: 'Discord', href: 'https://discord.gg/RxZpaUJM', description: 'Join our official Discord server to chat with the community' },
+    ]
+  },
   { name: 'Use Cases', href: '#use-cases' },
   {
     name: 'Docs',
@@ -26,6 +43,8 @@ export default function Header() {
   const [lastScrollY, setLastScrollY] = useState(0)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null)
+
+  const { setIsCartOpen, totalItems } = useCart()
 
   useEffect(() => {
     const handleScroll = () => {
@@ -121,6 +140,8 @@ export default function Header() {
                           key={dropdownItem.name}
                           href={dropdownItem.href}
                           className="block px-4 py-3 hover:bg-cyan-50 transition-colors group"
+                          target={dropdownItem.href.startsWith('http') ? '_blank' : undefined}
+                          rel={dropdownItem.href.startsWith('http') ? 'noopener noreferrer' : undefined}
                         >
                           <div className="font-medium text-gray-900 group-hover:text-cyan-600 transition-colors">
                             {dropdownItem.name}
@@ -149,14 +170,16 @@ export default function Header() {
 
             {/* Shopping Cart */}
             <button
+              onClick={() => setIsCartOpen(true)}
               className="relative p-2 text-gray-700 hover:text-primary-600 transition-colors duration-200"
               aria-label="Shopping cart"
             >
               <ShoppingCart className="w-6 h-6" />
-              {/* Cart badge - you can dynamically update this based on cart items */}
-              <span className="absolute top-0 right-0 inline-flex items-center justify-center w-5 h-5 text-xs font-bold text-white bg-secondary-500 rounded-full transform translate-x-1/2 -translate-y-1/2">
-                0
-              </span>
+              {totalItems > 0 && (
+                <span className="absolute top-0 right-0 inline-flex items-center justify-center w-5 h-5 text-xs font-bold text-white bg-secondary-500 rounded-full transform translate-x-1/2 -translate-y-1/2">
+                  {totalItems}
+                </span>
+              )}
             </button>
 
             {/* Mobile Menu Button */}
@@ -196,6 +219,8 @@ export default function Header() {
                         key={dropdownItem.name}
                         href={dropdownItem.href}
                         className="block px-3 py-2 text-sm text-gray-600 hover:text-primary-600 hover:bg-primary-50 rounded-md transition-colors duration-200"
+                        target={dropdownItem.href.startsWith('http') ? '_blank' : undefined}
+                        rel={dropdownItem.href.startsWith('http') ? 'noopener noreferrer' : undefined}
                         onClick={() => setIsMobileMenuOpen(false)}
                       >
                         {dropdownItem.name}

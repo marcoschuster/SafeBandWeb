@@ -2,6 +2,7 @@ import { HeroSection } from '@/components/sections/HeroSection'
 
 import { FeaturesSection } from '@/components/sections/FeaturesSection'
 import { ProductsSection } from '@/components/sections/ProductsSection'
+import { ScentsSection } from '@/components/sections/ScentsSection'
 import { CTASection } from '@/components/sections/CTASection'
 
 export default function HomePage() {
@@ -13,6 +14,7 @@ export default function HomePage() {
         <HeroSection />
         <FeaturesSection />
         <ProductsSection />
+        <ScentsSection />
         <CTASection />
       </div>
     </main>

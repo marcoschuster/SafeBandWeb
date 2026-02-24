@@ -4,29 +4,36 @@ import { motion } from 'framer-motion'
 import { useInView } from 'framer-motion'
 import { useRef } from 'react'
 import Link from 'next/link'
+import { useCart } from '@/context/CartContext'
 
 const products = [
   {
+    id: 'safeband-classic',
     name: 'SafeBand Classic',
     price: '$129',
     description: 'Perfect for everyday safety with all essential features.',
     features: ['SOS Alert', 'GPS Tracking', '7-Day Battery', 'Water Resistant'],
     color: 'from-blue-500 to-blue-700',
+    image: '/images/bands/safeband-classic.png'
   },
   {
+    id: 'safeband-pro',
     name: 'SafeBand Pro',
     price: '$199',
     description: 'Advanced safety with health monitoring capabilities.',
     features: ['All Classic Features', 'Fall Detection', 'Heart Rate Monitor', '14-Day Battery'],
     color: 'from-purple-500 to-purple-700',
     popular: true,
+    image: '/images/bands/safeband-pro.png'
   },
   {
+    id: 'safeband-ultra',
     name: 'SafeBand Ultra',
     price: '$299',
     description: 'Ultimate protection with premium features and extended battery.',
     features: ['All Pro Features', 'Two-Way Audio', 'Temperature Alert', '30-Day Battery'],
     color: 'from-pink-500 to-pink-700',
+    image: '/images/bands/safeband-ultra.png'
   },
 ]
 
@@ -51,10 +58,14 @@ function ProductCard({ product, index }: { product: typeof products[0]; index: n
         </div>
       )}
 
-      <div className={`w-20 h-20 rounded-2xl bg-gradient-to-br ${product.color} mb-6 flex items-center justify-center`}>
-        <svg className="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 24 24">
-          <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
-        </svg>
+      <div className={`w-20 h-20 rounded-2xl bg-gradient-to-br ${product.color} mb-6 flex items-center justify-center overflow-hidden p-2 shadow-inner`}>
+        {product.image ? (
+          <img src={product.image} alt={product.name} className="w-full h-full object-contain drop-shadow-md" />
+        ) : (
+          <svg className="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 24 24">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
+          </svg>
+        )}
       </div>
 
       <h3 className="text-3xl font-bold text-gray-900 mb-2">{product.name}</h3>
@@ -75,13 +86,13 @@ function ProductCard({ product, index }: { product: typeof products[0]; index: n
       </ul>
 
       <Link
-        href={`/products/${product.name.toLowerCase().replace(' ', '-')}`}
+        href={`/products/${product.id}`}
         className={`block w-full py-4 px-6 rounded-full font-semibold text-center transition-all ${product.popular
-            ? 'bg-gradient-to-r from-cyan-600 to-cyan-400 text-white hover:shadow-xl hover:scale-105'
-            : 'bg-gray-100 text-gray-900 hover:bg-gray-200'
+          ? 'bg-gradient-to-r from-cyan-600 to-cyan-400 text-white hover:shadow-xl hover:scale-105'
+          : 'bg-gray-100 text-gray-900 hover:bg-gray-200'
           }`}
       >
-        Get Started
+        View Details
       </Link>
     </motion.div>
   )
