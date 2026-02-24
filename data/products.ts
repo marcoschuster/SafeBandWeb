@@ -25,7 +25,6 @@ export const products: Product[] = [
         features: ['SOS Alert', 'GPS Tracking', '7-Day Battery', 'Water Resistant'],
         color: 'from-blue-500 to-blue-700',
         category: 'band',
-        image: '/images/bands/safeband-classic.png'
     },
     {
         id: 'safeband-pro',
@@ -37,7 +36,6 @@ export const products: Product[] = [
         color: 'from-purple-500 to-purple-700',
         category: 'band',
         popular: true,
-        image: '/images/bands/safeband-pro.png'
     },
     {
         id: 'safeband-ultra',
@@ -48,7 +46,6 @@ export const products: Product[] = [
         features: ['All Pro Features', 'Two-Way Audio', 'Temperature Alert', '30-Day Battery'],
         color: 'from-pink-500 to-pink-700',
         category: 'band',
-        image: '/images/bands/safeband-ultra.png'
     },
     // Scents
     {

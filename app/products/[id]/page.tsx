@@ -1,19 +1,31 @@
 'use client'
 
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { useParams, useRouter } from 'next/navigation'
 import { motion } from 'framer-motion'
 import { products } from '@/data/products'
 import { useCart } from '@/context/CartContext'
-import { ArrowLeft, ShoppingCart, Check, Shield, Zap, Sparkles } from 'lucide-react'
+import { ArrowLeft, ShoppingCart, Check, Sparkles } from 'lucide-react'
 import Link from 'next/link'
 
 export default function ProductPage() {
-    const { id } = useParams()
+    const params = useParams()
     const router = useRouter()
     const { addToCart } = useCart()
+    const [visible, setVisible] = useState(false)
 
-    const product = products.find(p => p.id === id)
+    const id = params?.id as string | undefined
+    const product = id ? products.find(p => p.id === id) : undefined
+
+    useEffect(() => {
+        // Tiny delay lets the DOM settle before we animate in
+        const t = setTimeout(() => setVisible(true), 30)
+        return () => clearTimeout(t)
+    }, [id])
+
+    if (!id) {
+        return <div className="min-h-screen" />
+    }
 
     if (!product) {
         return (
@@ -38,33 +50,29 @@ export default function ProductPage() {
                     <ArrowLeft size={20} className="group-hover:-translate-x-1 transition-transform" /> Back
                 </button>
 
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
                     {/* Product Visual */}
-                    <motion.div
-                        initial={{ opacity: 0, x: -50 }}
-                        animate={{ opacity: 1, x: 0 }}
+                    <div
+                        style={{
+                            opacity: visible ? 1 : 0,
+                            transform: visible ? 'translateX(0)' : 'translateX(-40px)',
+                            transition: 'opacity 0.6s ease, transform 0.6s ease',
+                        }}
                         className={`aspect-square rounded-[3rem] bg-gradient-to-br ${product.color} shadow-2xl flex items-center justify-center text-white relative overflow-hidden`}
                     >
                         <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-20" />
-                        <motion.div
-                            initial={{ scale: 0.8, rotate: -10 }}
-                            animate={{ scale: 1, rotate: 0 }}
-                            transition={{ duration: 0.8, type: 'spring' }}
-                            className="relative z-10"
-                        >
+                        <div className="relative z-10 w-full h-full flex items-center justify-center">
                             {product.image ? (
-                                <motion.div
-                                    initial={{ scale: 0.8 }}
-                                    animate={{ scale: 1 }}
-                                    transition={{ duration: 0.8, type: 'spring' }}
-                                    className="relative w-full h-full p-12"
-                                >
+                                <div className="w-full h-full p-3">
                                     <img
                                         src={product.image}
                                         alt={product.name}
-                                        className="w-full h-full object-contain drop-shadow-2xl"
+                                        className="w-full h-full object-contain"
+                                        style={{
+                                            filter: 'drop-shadow(0 8px 24px rgba(0,0,0,0.55)) drop-shadow(0 2px 8px rgba(0,0,0,0.45)) drop-shadow(0 0px 2px rgba(0,0,0,0.3))'
+                                        }}
                                     />
-                                </motion.div>
+                                </div>
                             ) : (
                                 <div className="relative">
                                     <Sparkles className="w-48 h-48 opacity-20 absolute -top-10 -left-10 blur-xl text-yellow-200" />
@@ -74,18 +82,20 @@ export default function ProductPage() {
                                     </div>
                                 </div>
                             )}
-                        </motion.div>
-                    </motion.div>
+                        </div>
+                    </div>
 
                     {/* Product Info */}
-                    <motion.div
-                        initial={{ opacity: 0, x: 50 }}
-                        animate={{ opacity: 1, x: 0 }}
+                    <div
+                        style={{
+                            opacity: visible ? 1 : 0,
+                            transform: visible ? 'translateX(0)' : 'translateX(40px)',
+                            transition: 'opacity 0.6s ease 0.1s, transform 0.6s ease 0.1s',
+                        }}
                         className="flex flex-col"
                     >
                         <div className="mb-8">
-                            <span className={`px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest mb-4 inline-block shadow-sm ${product.category === 'band' ? 'bg-blue-100 text-blue-700' : 'bg-emerald-100 text-emerald-700'
-                                }`}>
+                            <span className={`px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest mb-4 inline-block shadow-sm ${product.category === 'band' ? 'bg-blue-100 text-blue-700' : 'bg-emerald-100 text-emerald-700'}`}>
                                 {product.category === 'band' ? 'Smart Wearable' : 'Scent Pod Collection'}
                             </span>
                             <h1 className="text-5xl font-black text-gray-900 mb-4">{product.name}</h1>
@@ -136,7 +146,7 @@ export default function ProductPage() {
                                 Ships within 24 hours. Free returns within 30 days.
                             </p>
                         </div>
-                    </motion.div>
+                    </div>
                 </div>
             </div>
         </div>

@@ -12,40 +12,50 @@ const scents = [
         id: 'scent-mosquito',
         description: 'Natural protection against mosquitoes and insects. perfect for outdoor adventures.',
         icon: Shield,
+        image: '/images/scents/mosquito-shield.png',
         color: 'from-emerald-400 to-cyan-500',
-        tags: ['Safe', 'Natural', 'Outdoor']
+        tags: ['Safe', 'Natural', 'Outdoor'],
+        imageScale: 1
     },
     {
         name: 'Lavender Calm',
         id: 'scent-lavender',
         description: 'Pure lavender essence to promote relaxation and deep, restful sleep.',
         icon: Wind,
+        image: '/images/scents/lavender-calm.png',
         color: 'from-purple-400 to-indigo-500',
-        tags: ['Relax', 'Sleep', 'Peace']
+        tags: ['Relax', 'Sleep', 'Peace'],
+        imageScale: 1.6
     },
     {
         name: 'Ocean Breeze',
         id: 'scent-ocean',
         description: 'Refreshing sea salt and aquatic notes for a clean, invigorating atmosphere.',
         icon: Droplets,
+        image: '/images/scents/ocean-breeze.png',
         color: 'from-blue-400 to-cyan-500',
-        tags: ['Fresh', 'Clean', 'Energy']
+        tags: ['Fresh', 'Clean', 'Energy'],
+        imageScale: 1.9
     },
     {
         name: 'Forest Walk',
         id: 'scent-forest',
         description: 'Earthy pine and cedarwood that brings the tranquility of the woods to you.',
         icon: Trees,
+        image: '/images/scents/forest-walk.png',
         color: 'from-green-500 to-emerald-700',
-        tags: ['Earth', 'Woody', 'Nature']
+        tags: ['Earth', 'Woody', 'Nature'],
+        imageScale: 1
     },
     {
         name: 'Mint Fresh',
         id: 'scent-mint',
         description: 'Crisp peppermint and spear-mint to sharpen focus and refresh your mind.',
         icon: Zap,
+        image: '/images/scents/mint-fresh.png',
         color: 'from-teal-300 to-emerald-500',
-        tags: ['Focus', 'Cool', 'Clear']
+        tags: ['Focus', 'Cool', 'Clear'],
+        imageScale: 1.6
     }
 ]
 
@@ -84,11 +94,19 @@ export function ScentsSection() {
                                 whileHover={{ y: -10 }}
                                 className="group h-full bg-white/40 backdrop-blur-xl rounded-3xl p-6 border border-white/20 shadow-lg hover:shadow-2xl transition-all duration-300"
                             >
-                                <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${scent.color} mb-6 flex items-center justify-center text-white shadow-lg group-hover:scale-110 transition-transform duration-300 overflow-hidden`}>
-                                    {(scent as any).image ? (
-                                        <img src={(scent as any).image} alt={scent.name} className="w-full h-full object-contain p-2" />
+                                <div className={`w-36 h-36 rounded-2xl bg-gradient-to-br ${scent.color} mb-6 flex items-center justify-center text-white shadow-lg group-hover:scale-110 transition-transform duration-300 overflow-hidden`}>
+                                    {scent.image ? (
+                                        <img
+                                            src={scent.image}
+                                            alt={scent.name}
+                                            className="w-full h-full object-contain p-2"
+                                            style={{
+                                                transform: `scale(${scent.imageScale ?? 1})`,
+                                                filter: 'drop-shadow(0 6px 16px rgba(0,0,0,0.55)) drop-shadow(0 2px 6px rgba(0,0,0,0.4)) drop-shadow(0 0px 2px rgba(0,0,0,0.3))'
+                                            }}
+                                        />
                                     ) : (
-                                        <scent.icon size={28} />
+                                        <scent.icon size={40} />
                                     )}
                                 </div>
 

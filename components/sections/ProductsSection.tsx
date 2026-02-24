@@ -14,7 +14,6 @@ const products = [
     description: 'Perfect for everyday safety with all essential features.',
     features: ['SOS Alert', 'GPS Tracking', '7-Day Battery', 'Water Resistant'],
     color: 'from-blue-500 to-blue-700',
-    image: '/images/bands/safeband-classic.png'
   },
   {
     id: 'safeband-pro',
@@ -24,7 +23,6 @@ const products = [
     features: ['All Classic Features', 'Fall Detection', 'Heart Rate Monitor', '14-Day Battery'],
     color: 'from-purple-500 to-purple-700',
     popular: true,
-    image: '/images/bands/safeband-pro.png'
   },
   {
     id: 'safeband-ultra',
@@ -33,7 +31,6 @@ const products = [
     description: 'Ultimate protection with premium features and extended battery.',
     features: ['All Pro Features', 'Two-Way Audio', 'Temperature Alert', '30-Day Battery'],
     color: 'from-pink-500 to-pink-700',
-    image: '/images/bands/safeband-ultra.png'
   },
 ]
 
@@ -59,13 +56,9 @@ function ProductCard({ product, index }: { product: typeof products[0]; index: n
       )}
 
       <div className={`w-20 h-20 rounded-2xl bg-gradient-to-br ${product.color} mb-6 flex items-center justify-center overflow-hidden p-2 shadow-inner`}>
-        {product.image ? (
-          <img src={product.image} alt={product.name} className="w-full h-full object-contain drop-shadow-md" />
-        ) : (
-          <svg className="w-10 h-10 text-white" fill="currentColor" viewBox="0 0 24 24">
-            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
-          </svg>
-        )}
+        <svg className="w-11 h-11 text-white drop-shadow-md" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M9 2h6l1 4H8L9 2zm8 4H7l-1 3H4a1 1 0 00-1 1v8a1 1 0 001 1h16a1 1 0 001-1V10a1 1 0 00-1-1h-2l-1-3zm-5 10a3 3 0 110-6 3 3 0 010 6z" />
+        </svg>
       </div>
 
       <h3 className="text-3xl font-bold text-gray-900 mb-2">{product.name}</h3>
@@ -111,15 +104,17 @@ export function ProductsSection() {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-            Choose Your
-            <span className="block bg-gradient-to-r from-cyan-600 to-cyan-400 bg-clip-text text-transparent">
-              Perfect SafeBand
-            </span>
-          </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Every SafeBand comes with a 30-day money-back guarantee and lifetime support.
-          </p>
+          <div className="inline-block rounded-3xl bg-white/80 px-8 py-6 shadow-sm border border-white/40">
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+              Choose Your
+              <span className="block bg-gradient-to-r from-cyan-600 to-cyan-400 bg-clip-text text-transparent">
+                Perfect SafeBand
+              </span>
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Every SafeBand comes with a 30-day money-back guarantee and lifetime support.
+            </p>
+          </div>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
