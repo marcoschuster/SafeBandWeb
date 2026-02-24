@@ -13,7 +13,7 @@ const LIFT_RADIUS = 3.8
 const LIFT_AMOUNT = 2.0
 const TILT_AMOUNT = 0.32
 const LERP = 0.09
-const MAX_PARTICLES = 160
+const MAX_PARTICLES = 70
 
 // Palette
 const C_TILE_TOP = new THREE.Color('#ffffff')     // pure white top face
@@ -53,7 +53,7 @@ export default function DynamicBackground() {
         renderer.shadowMap.enabled = true
         renderer.shadowMap.type = THREE.PCFSoftShadowMap
         renderer.setSize(window.innerWidth, window.innerHeight)
-        renderer.setClearColor(0xffffff)
+        renderer.setClearColor(0x0891b2)
         Object.assign(renderer.domElement.style, {
             position: 'absolute', top: '0', left: '0', pointerEvents: 'none',
         })
@@ -61,7 +61,7 @@ export default function DynamicBackground() {
 
         // ── Scene ─────────────────────────────────────────────────────────────
         const scene = new THREE.Scene()
-        scene.background = new THREE.Color('#ffffff')
+        scene.background = new THREE.Color('#0891b2')
 
         // ── Camera — nearly top-down, ~83° from horizontal ─────────────────────
         const camera = new THREE.PerspectiveCamera(
@@ -71,11 +71,22 @@ export default function DynamicBackground() {
         camera.position.set(0, 12, 1.5)
         camera.lookAt(0, 0, 0)
 
-        // ── Background shiny floor behind tiles ────────────────────────────────
+        // ── Background gradient floor behind tiles ─────────────────────────────
+        // Build a canvas with the cyan-600 → cyan-400 gradient (left to right)
+        const gradCanvas = document.createElement('canvas')
+        gradCanvas.width = 512; gradCanvas.height = 512
+        const ctx = gradCanvas.getContext('2d')!
+        const grad = ctx.createLinearGradient(0, 0, gradCanvas.width, 0)
+        grad.addColorStop(0, '#0891b2')   // cyan-600
+        grad.addColorStop(1, '#22d3ee')   // cyan-400
+        ctx.fillStyle = grad
+        ctx.fillRect(0, 0, gradCanvas.width, gradCanvas.height)
+        const gradTex = new THREE.CanvasTexture(gradCanvas)
+
         const bgFloor = new THREE.Mesh(
             new THREE.PlaneGeometry(150, 150),
             new THREE.MeshStandardMaterial({
-                color: new THREE.Color('#ffffff'),
+                map: gradTex,
                 roughness: 1.0,
                 metalness: 0.0,
                 envMapIntensity: 0,
@@ -159,7 +170,7 @@ export default function DynamicBackground() {
             new THREE.OctahedronGeometry(0.09),
             new THREE.BoxGeometry(0.09, 0.09, 0.09),
         ]
-        const pCols = [0xcccccc, 0xe0e0e0, 0xf0f0f0, 0xaaaaaa]
+        const pCols = [0x22d3ee, 0x67e8f9, 0xa5f3fc, 0x7dd3fc, 0x38bdf8]
 
         const spawnParticles = (wx: number, wz: number, n: number) => {
             for (let i = 0; i < n && particles.length < MAX_PARTICLES; i++) {
@@ -207,7 +218,7 @@ export default function DynamicBackground() {
             ndc.y = -(e.clientY / window.innerHeight) * 2 + 1
             ray.setFromCamera(ndc, camera)
             ray.ray.intersectPlane(groundP, wPos)
-            spawnParticles(wPos.x, wPos.z, 14)
+            spawnParticles(wPos.x, wPos.z, 7)
         }
         window.addEventListener('mousemove', onMove)
         window.addEventListener('click', onClick)
@@ -234,8 +245,8 @@ export default function DynamicBackground() {
             // Spawn particles on movement
             const now = performance.now()
             const moved = Math.hypot(cx - prevX, cz - prevZ)
-            if (moved > 0.28 && now - lastSpawnMs > 75) {
-                spawnParticles(cx, cz, Math.min(7, 3 + Math.floor(moved * 2.5)))
+            if (moved > 0.28 && now - lastSpawnMs > 100) {
+                spawnParticles(cx, cz, Math.min(4, 2 + Math.floor(moved * 0.8)))
                 lastSpawnMs = now
             }
             prevX = cx; prevZ = cz
@@ -304,7 +315,7 @@ export default function DynamicBackground() {
             })
             pGeos.forEach(g => g.dispose())
             edgeGeo.dispose(); edgeMat.dispose()
-            matSide.dispose(); matBot.dispose()
+            matSide.dispose(); matBot.dispose(); gradTex.dispose()
             particles.forEach(p => { scene.remove(p.mesh); p.mat.dispose() })
             renderer.dispose()
             if (mount.contains(renderer.domElement)) mount.removeChild(renderer.domElement)
