@@ -1,20 +1,20 @@
-# 🚀 SafeBand Website - Marketing & E-Commerce Platform
+#  SafeBand Website - Marketing & E-Commerce Platform
 
 A modern, responsive, and animated marketing website built with Next.js 14, TypeScript, Tailwind CSS, and Framer Motion.
 
-## ✨ Features
+## Features
 
-- **🎨 Modern Design**: Beautiful, responsive UI with smooth animations
-- **⚡ Fast Performance**: Built with Next.js 14 App Router for optimal speed
-- **🛒 E-Commerce Ready**: Stripe integration for seamless checkout
-- **📱 Fully Responsive**: Perfect on all devices from mobile to desktop
-- **♿ Accessible**: WCAG 2.1 compliant with semantic HTML
-- **🎭 Animated**: Smooth animations with Framer Motion
-- **📊 Analytics Ready**: Google Analytics & Plausible integration
-- **🔍 SEO Optimized**: Meta tags, OpenGraph, and Twitter Cards
-- **🎯 TypeScript**: Fully typed for better development experience
+- ** Modern Design**: Beautiful, responsive UI with smooth animations
+- ** Fast Performance**: Built with Next.js 14 App Router for optimal speed
+- ** E-Commerce Ready**: Functional cart for seamless checkout 
+- ** Fully Responsive**: Perfect on all devices from mobile to desktop
+- ** Accessible**: WCAG 2.1 compliant with semantic HTML
+- ** Animated**: Smooth animations with Framer Motion
+- ** Analytics Ready**: Google Analytics & Plausible integration
+- ** SEO Optimized**: Meta tags, OpenGraph, and Twitter Cards
+- **TypeScript**: Fully typed for better development experience
 
-## 🛠️ Tech Stack
+##  Tech Stack
 
 - **Framework**: [Next.js 14](https://nextjs.org/) (App Router)
 - **Language**: [TypeScript](https://www.typescriptlang.org/)
@@ -23,7 +23,7 @@ A modern, responsive, and animated marketing website built with Next.js 14, Type
 - **Payments**: [Stripe](https://stripe.com/)
 - **Deployment**: [Vercel](https://vercel.com/)
 
-## 📦 Project Structure
+## Project Structure
 
 ```
 SafeBandWeb/
@@ -49,11 +49,11 @@ SafeBandWeb/
 └── styles/                # Additional CSS if needed
 ```
 
-## 🚀 Getting Started
+##  Getting Started
 
 ### Prerequisites
 
-- Node.js 18+ 
+- Node.js  
 - npm or yarn
 - Stripe account (for payments)
 
@@ -88,7 +88,7 @@ SafeBandWeb/
 5. **Open your browser**
    Navigate to [http://localhost:3000](http://localhost:3000)
 
-## 📜 Available Scripts
+##  Available Scripts
 
 - `npm run dev` - Start development server
 - `npm run build` - Build for production
@@ -96,7 +96,7 @@ SafeBandWeb/
 - `npm run lint` - Run ESLint
 - `npm run type-check` - Run TypeScript type checking
 
-## 🎨 Customization
+##  Customization
 
 ### Theme Configuration
 
@@ -122,7 +122,7 @@ export function Button({ children }) {
 }
 ```
 
-## 💳 Stripe Integration
+##  Stripe Integration
 
 1. Create a Stripe account at [stripe.com](https://stripe.com)
 2. Get your API keys from the [Dashboard](https://dashboard.stripe.com/apikeys)
@@ -130,7 +130,7 @@ export function Button({ children }) {
 4. Create products in Stripe Dashboard
 5. Implement checkout flow (see docs in `/docs/stripe-setup.md`)
 
-## 📊 Analytics Setup
+##  Analytics Setup
 
 ### Google Analytics
 1. Create a GA4 property
@@ -141,7 +141,7 @@ export function Button({ children }) {
 1. Sign up at [plausible.io](https://plausible.io)
 2. Add your domain to `.env.local`
 
-## 🚀 Deployment
+##  Deployment
 
 ### Vercel (Recommended)
 
@@ -156,7 +156,7 @@ export function Button({ children }) {
 - **AWS Amplify**: Follow their Next.js guide
 - **DigitalOcean**: Use App Platform with Next.js preset
 
-## 🔐 Environment Variables
+##  Environment Variables
 
 Required:
 ```env
@@ -171,7 +171,7 @@ NEXT_PUBLIC_PLAUSIBLE_DOMAIN=yourdomain.com
 SENDGRID_API_KEY=SG....
 ```
 
-## 🤝 Contributing
+##  Contributing
 
 Contributions are welcome! Please follow these steps:
 
@@ -181,24 +181,24 @@ Contributions are welcome! Please follow these steps:
 4. Push to the branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
-## 📝 License
+##  License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 🙏 Acknowledgments
+##  Acknowledgments
 
 - [Next.js](https://nextjs.org/)
 - [Tailwind CSS](https://tailwindcss.com/)
 - [Framer Motion](https://www.framer.com/motion/)
 - [Stripe](https://stripe.com/)
 
-## 📞 Support
+## Support
 
 - Documentation: [docs.safeband.com](https://docs.safeband.com)
 - Email: support@safeband.com
 - Discord: [Join our community](https://discord.gg/safeband)
 
-## 🗺️ Roadmap
+## Roadmap
 
 - [ ] Add product pages
 - [ ] Implement shopping cart
@@ -210,6 +210,10 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - [ ] Add multi-language support
 - [ ] Create mobile app integration
 
+## Note:
+
+This NOT a real product nor a startup but a school project.
+
 ---
 
-Made with ❤️ by the SafeBand Team
+Made with ❤️ by the SafeBand Team 
