@@ -1,5 +1,8 @@
+'use client'
+
 import Image from 'next/image'
 import Link from 'next/link'
+import { useState } from 'react'
 
 const scents = [
   {
@@ -45,6 +48,8 @@ const scents = [
 ]
 
 export default function AromatherapyPage() {
+  const [hoveredScent, setHoveredScent] = useState<string | null>(null)
+
   return (
     <main className="min-h-screen pt-24 pb-16 bg-white relative z-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -81,11 +86,17 @@ export default function AromatherapyPage() {
           {scents.map((scent, index) => (
             <div key={scent.id} className={`grid md:grid-cols-2 gap-12 items-center ${index % 2 === 1 ? 'md:flex-row-reverse' : ''}`}>
               <div className={index % 2 === 1 ? 'md:order-2' : ''}>
-                <div className={`bg-gradient-to-br ${scent.color} rounded-3xl p-8 flex items-center justify-center min-h-[450px] shadow-xl hover:shadow-2xl transition-all duration-300 group cursor-pointer`}>
+                <div 
+                  className={`bg-gradient-to-br ${scent.color} rounded-3xl p-8 flex items-center justify-center min-h-[450px] shadow-xl hover:shadow-2xl transition-all duration-300 cursor-pointer overflow-hidden`}
+                  onMouseEnter={() => setHoveredScent(scent.id)}
+                  onMouseLeave={() => setHoveredScent(null)}
+                >
                   <div 
-                    className="transition-all duration-500 ease-out group-hover:scale-125 group-hover:rotate-6"
+                    className="transition-all duration-500 ease-out"
                     style={{
-                      transform: `scale(${scent.imageScale || 1.1})`
+                      transform: hoveredScent === scent.id 
+                        ? `scale(${(scent.imageScale || 1.1) * 1.2}) rotate(6deg)`
+                        : `scale(${scent.imageScale || 1.1}) rotate(0deg)`
                     }}
                   >
                     <Image
