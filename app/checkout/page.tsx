@@ -258,7 +258,7 @@ export default function CheckoutPage() {
                                     </div>
                                     <h1 className="text-4xl font-black text-gray-900 mb-4 text-balance">Order Completed Successfully!</h1>
                                     <p className="text-xl text-gray-500 mb-10 text-balance">
-                                        Thank you, {formData.firstName}! We've received your order and are preparing it for shipment.
+                                        Thank you, {formData.firstName}! We&apos;ve received your order and are preparing it for shipment.
                                     </p>
 
                                     <div className="bg-gray-50 p-8 rounded-3xl mb-10 text-left">

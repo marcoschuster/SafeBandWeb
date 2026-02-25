@@ -53,7 +53,7 @@ export default function CartDrawer() {
                                         <ShoppingBag size={40} className="text-gray-300" />
                                     </div>
                                     <h3 className="text-lg font-medium text-gray-900">Your cart is empty</h3>
-                                    <p className="text-gray-500 mt-2">Looks like you haven't added anything yet.</p>
+                                    <p className="text-gray-500 mt-2">Looks like you haven&apos;t added anything yet.</p>
                                     <button
                                         onClick={() => setIsCartOpen(false)}
                                         className="mt-6 text-cyan-600 font-semibold hover:underline"
