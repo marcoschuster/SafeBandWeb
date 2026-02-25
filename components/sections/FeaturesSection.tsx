@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion'
 import { useInView } from 'framer-motion'
 import { useRef } from 'react'
+import { useLanguage } from '@/context/LanguageContext'
 
 const features = [
   {
@@ -59,6 +60,7 @@ function FeatureCard({ feature, index }: { feature: typeof features[0]; index: n
 export function FeaturesSection() {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true })
+  const { t } = useLanguage()
 
   return (
     <section ref={ref} className="py-40 bg-transparent">

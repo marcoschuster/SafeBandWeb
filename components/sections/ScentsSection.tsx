@@ -5,6 +5,7 @@ import { useInView } from 'framer-motion'
 import { useRef } from 'react'
 import { Shield, Wind, Trees, Droplets, Zap } from 'lucide-react'
 import Link from 'next/link'
+import { useLanguage } from '@/context/LanguageContext'
 
 const scents = [
     {
@@ -62,6 +63,7 @@ const scents = [
 export function ScentsSection() {
     const ref = useRef(null)
     const isInView = useInView(ref, { once: true, margin: "0px" })
+    const { t } = useLanguage()
 
     return (
         <section id="scents" className="py-32 relative overflow-hidden bg-gray-50/50">

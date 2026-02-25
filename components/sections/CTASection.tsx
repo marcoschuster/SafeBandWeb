@@ -4,10 +4,12 @@ import { motion } from 'framer-motion'
 import { useInView } from 'framer-motion'
 import { useRef } from 'react'
 import Link from 'next/link'
+import { useLanguage } from '@/context/LanguageContext'
 
 export function CTASection() {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true })
+  const { t } = useLanguage()
 
   return (
     <section ref={ref} className="relative py-32 overflow-hidden">
@@ -38,10 +40,10 @@ export function CTASection() {
           transition={{ duration: 0.8 }}
         >
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
-            Ready to Feel Safer?
+            {t('cta.title')}
           </h2>
           <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
-            Join thousands of people who trust SafeBand for their safety every day. Get started with free shipping and a 30-day guarantee.
+            {t('cta.subtitle')}
           </p>
 
           <motion.div
@@ -54,13 +56,13 @@ export function CTASection() {
               href="/products"
               className="px-8 py-4 bg-white text-cyan-600 rounded-full font-semibold hover:bg-gray-100 transition-all hover:scale-105 shadow-xl hover:shadow-2xl"
             >
-              Shop Now
+              {t('cta.shopNow')}
             </Link>
             <Link
               href="/contact"
               className="px-8 py-4 bg-transparent text-white rounded-full font-semibold hover:bg-white/10 transition-all hover:scale-105 border-2 border-white"
             >
-              Contact Sales
+              {t('cta.contactSales')}
             </Link>
           </motion.div>
 

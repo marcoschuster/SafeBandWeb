@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 import { useInView } from 'framer-motion'
 import { useRef, useState, useEffect } from 'react'
 import { Star, X } from 'lucide-react'
+import { useLanguage } from '@/context/LanguageContext'
 
 const reviews = [
   {
@@ -207,6 +208,7 @@ export function ReviewsSection() {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true })
   const [selectedReview, setSelectedReview] = useState<typeof reviews[0] | null>(null)
+  const { t } = useLanguage()
 
   // Duplicate reviews for seamless loop
   const duplicatedReviews = [...reviews, ...reviews, ...reviews]
@@ -227,13 +229,13 @@ export function ReviewsSection() {
           >
             <div className="inline-block rounded-3xl bg-white px-12 py-8 pb-12 shadow-sm border border-white/40 min-w-fit">
               <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-2 whitespace-nowrap">
-                What Our Customers
+                {t('reviews.title1')}
               </h2>
               <h2 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-cyan-600 to-cyan-400 bg-clip-text text-transparent whitespace-nowrap pb-2 mb-6">
-                Are Saying
+                {t('reviews.title2')}
               </h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto mt-4">
-                Join thousands of satisfied customers who trust SafeBand for their safety.
+                {t('reviews.subtitle')}
               </p>
             </div>
           </motion.div>

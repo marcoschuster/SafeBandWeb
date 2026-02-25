@@ -5,6 +5,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { ShoppingCart, Menu, X } from 'lucide-react'
 import { useCart } from '@/context/CartContext'
+import { useLanguage } from '@/context/LanguageContext'
 
 const navigation = [
   {
@@ -55,6 +56,49 @@ export default function Header() {
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null)
 
   const { setIsCartOpen, totalItems } = useCart()
+  const { language, setLanguage, t } = useLanguage()
+  
+  // Dynamic navigation with translations
+  const navigation = [
+    {
+      name: t('nav.products'),
+      href: '#products',
+      dropdown: [
+        { name: 'Mosquito Shield', href: '/products/scent-mosquito', description: 'Advanced protection against mosquitoes with natural oils' },
+        { name: 'Lavender Calm', href: '/products/scent-lavender', description: 'Relaxing lavender scent to reduce stress and anxiety' },
+        { name: 'Ocean Breeze', href: '/products/scent-ocean', description: 'Fresh and invigorating scent for an energy boost' },
+        { name: 'Forest Walk', href: '/products/scent-forest', description: 'Earthy and grounding woodsy aroma' },
+        { name: 'Mint Fresh', href: '/products/scent-mint', description: 'Cool and crisp mint for mental clarity' },
+      ]
+    },
+    {
+      name: t('nav.community'),
+      href: '#community',
+      dropdown: [
+        { name: t('nav.discord'), href: 'https://discord.gg/RxZpaUJM', description: t('nav.discord.desc') },
+      ]
+    },
+    {
+      name: t('nav.useCases'),
+      href: '#use-cases',
+      dropdown: [
+        { name: t('nav.mosquito'), href: '/use-cases/mosquito-repellent', description: t('nav.mosquito.desc') },
+        { name: t('nav.aromatherapy'), href: '/use-cases/aromatherapy', description: t('nav.aromatherapy.desc') },
+        { name: t('nav.sos'), href: '/use-cases/sos-emergency', description: t('nav.sos.desc') },
+        { name: t('nav.heartrate'), href: '/use-cases/heart-rate', description: t('nav.heartrate.desc') },
+        { name: t('nav.gps'), href: '/use-cases/gps-tracking', description: t('nav.gps.desc') },
+      ]
+    },
+    {
+      name: t('nav.docs'),
+      href: '#docs',
+      dropdown: [
+        { name: t('nav.about'), href: '/about', description: t('nav.about.desc') },
+        { name: t('nav.documentation'), href: '/docs/user-manual', description: t('nav.documentation.desc') },
+        { name: t('nav.support'), href: '/contact', description: t('nav.support.desc') },
+      ]
+    },
+  ]
 
   useEffect(() => {
     const handleScroll = () => {
@@ -87,8 +131,19 @@ export default function Header() {
         } ${isVisible ? 'top-0' : '-top-24'
         }`}
     >
-      <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16 md:h-20">
+      <nav className="px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center h-16 md:h-20">
+          {/* Language Switcher - Far Left */}
+          <button
+            onClick={() => setLanguage(language === 'en' ? 'de' : 'en')}
+            className="mr-4 p-2 rounded-lg hover:bg-gray-100 transition-colors duration-200 flex-shrink-0"
+            aria-label="Switch language"
+          >
+            <span className="text-3xl">{language === 'en' ? '🇬🇧' : '🇩🇪'}</span>
+          </button>
+
+          {/* Center Content Container */}
+          <div className="flex items-center justify-between flex-1 max-w-7xl mx-auto">
           {/* Logo */}
           <div className="flex-shrink-0">
             <Link href="/" className="flex items-center space-x-3 group">
@@ -175,7 +230,7 @@ export default function Header() {
               href="/login"
               className="hidden sm:inline-flex items-center px-4 py-2 text-sm font-medium text-gray-700 hover:text-primary-600 transition-colors duration-200"
             >
-              Login
+              {t('nav.login')}
             </Link>
 
             {/* Shopping Cart */}
@@ -205,6 +260,7 @@ export default function Header() {
               )}
             </button>
           </div>
+          </div> {/* Close center content container */}
         </div>
 
         {/* Mobile Menu */}
@@ -245,7 +301,7 @@ export default function Header() {
               className="block px-3 py-2 text-base font-medium text-gray-700 hover:text-primary-600 hover:bg-primary-50 rounded-md transition-colors duration-200"
               onClick={() => setIsMobileMenuOpen(false)}
             >
-              Login
+              {t('nav.login')}
             </Link>
           </div>
         </div>

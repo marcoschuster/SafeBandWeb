@@ -5,6 +5,7 @@ import { useInView } from 'framer-motion'
 import { useRef } from 'react'
 import Link from 'next/link'
 import { useCart } from '@/context/CartContext'
+import { useLanguage } from '@/context/LanguageContext'
 
 const products = [
   {
@@ -42,7 +43,7 @@ const products = [
   },
 ]
 
-function ProductCard({ product, index }: { product: typeof products[0]; index: number }) {
+function ProductCard({ product, index, t }: { product: typeof products[0]; index: number; t: (key: string) => string }) {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true })
 
@@ -93,7 +94,7 @@ function ProductCard({ product, index }: { product: typeof products[0]; index: n
           : 'bg-gray-100 text-gray-900 hover:bg-gray-200'
           }`}
       >
-        View Details
+        {t('products.viewDetails')}
       </Link>
     </motion.div>
   )
@@ -102,6 +103,7 @@ function ProductCard({ product, index }: { product: typeof products[0]; index: n
 export function ProductsSection() {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true })
+  const { t } = useLanguage()
 
   return (
     <section ref={ref} className="pt-32 pb-32 bg-transparent">
@@ -114,20 +116,20 @@ export function ProductsSection() {
         >
           <div className="inline-block rounded-3xl bg-white/80 px-8 py-6 shadow-sm border border-white/40">
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-              Choose Your
+              {t('products.title1')}
               <span className="block bg-gradient-to-r from-cyan-600 to-cyan-400 bg-clip-text text-transparent">
-                Perfect SafeBand
+                {t('products.title2')}
               </span>
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Every SafeBand comes with a 30-day money-back guarantee and lifetime support.
+              {t('products.subtitle')}
             </p>
           </div>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {products.map((product, index) => (
-            <ProductCard key={index} product={product} index={index} />
+            <ProductCard key={index} product={product} index={index} t={t} />
           ))}
         </div>
       </div>
