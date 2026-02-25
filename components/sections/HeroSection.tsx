@@ -12,17 +12,19 @@ export function HeroSection() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <motion.h1 
-            className="text-5xl md:text-7xl font-bold text-gray-900 mb-6"
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2 }}
-          >
-            Safety Meets
-            <span className="block bg-gradient-to-r from-cyan-600 to-cyan-400 bg-clip-text text-transparent">
-              Innovation
-            </span>
-          </motion.h1>
+          <div className="inline-block rounded-3xl bg-white/80 px-8 py-6 shadow-sm border border-white/40 mb-6">
+            <motion.h1 
+              className="text-5xl md:text-7xl font-bold text-gray-900"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+            >
+              Safety Meets
+              <span className="block bg-gradient-to-r from-cyan-600 to-cyan-400 bg-clip-text text-transparent">
+                Innovation
+              </span>
+            </motion.h1>
+          </div>
 
           <motion.p
             className="text-xl md:text-2xl text-gray-600 mb-8 max-w-3xl mx-auto"

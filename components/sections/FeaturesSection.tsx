@@ -69,15 +69,17 @@ export function FeaturesSection() {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-            Powerful Features for
-            <span className="block bg-gradient-to-r from-cyan-600 to-cyan-400 bg-clip-text text-transparent">
-              Complete Protection
-            </span>
-          </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            SafeBand combines cutting-edge technology with intuitive design to provide comprehensive safety coverage.
-          </p>
+          <div className="inline-block rounded-3xl bg-white/80 px-8 py-6 shadow-sm border border-white/40">
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+              Powerful Features for
+              <span className="block bg-gradient-to-r from-cyan-600 to-cyan-400 bg-clip-text text-transparent">
+                Complete Protection
+              </span>
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              SafeBand combines cutting-edge technology with intuitive design to provide comprehensive safety coverage.
+            </p>
+          </div>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">

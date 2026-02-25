@@ -72,15 +72,17 @@ export function ScentsSection() {
                     transition={{ duration: 0.8 }}
                     className="text-center mb-20"
                 >
-                    <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-                        The Scent
-                        <span className="block bg-gradient-to-r from-cyan-600 to-cyan-400 bg-clip-text text-transparent">
-                            Experience
-                        </span>
-                    </h2>
-                    <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-                        Each SafeBand can be customized with our proprietary scent pods, designed to enhance your mood and protect your environment.
-                    </p>
+                    <div className="inline-block rounded-3xl bg-white/80 px-8 py-6 shadow-sm border border-white/40">
+                        <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+                            The Scent
+                            <span className="block bg-gradient-to-r from-cyan-600 to-cyan-400 bg-clip-text text-transparent">
+                                Experience
+                            </span>
+                        </h2>
+                        <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+                            Each SafeBand can be customized with our proprietary scent pods, designed to enhance your mood and protect your environment.
+                        </p>
+                    </div>
                 </motion.div>
 
                 <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6">
