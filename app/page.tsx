@@ -14,8 +14,8 @@ export default function HomePage() {
       <div className="relative z-10">
         <HeroSection />
         <FeaturesSection />
-        <ProductsSection />
         <ScentsSection />
+        <ProductsSection />
         <ReviewsSection />
         <CTASection />
       </div>

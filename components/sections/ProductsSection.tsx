@@ -8,29 +8,37 @@ import { useCart } from '@/context/CartContext'
 
 const products = [
   {
-    id: 'safeband-classic',
-    name: 'SafeBand Classic',
-    price: '$129',
-    description: 'Perfect for everyday safety with all essential features.',
-    features: ['SOS Alert', 'GPS Tracking', '7-Day Battery', 'Water Resistant'],
+    id: 'safeband-solo',
+    name: 'SafeBand Only',
+    price: '€49.99',
+    description: 'The essential SafeBand with all safety features.',
+    features: ['SOS Alert', 'GPS Tracking', '30-Day Battery', 'Water Resistant'],
     color: 'from-blue-500 to-blue-700',
   },
   {
-    id: 'safeband-pro',
-    name: 'SafeBand Pro',
-    price: '$199',
-    description: 'Advanced safety with health monitoring capabilities.',
-    features: ['All Classic Features', 'Fall Detection', 'Heart Rate Monitor', '14-Day Battery'],
+    id: 'safeband-bundle-2',
+    name: 'SafeBand + 2 Scents',
+    price: '€66.99',
+    description: 'SafeBand with 2 scent capsules of your choice.',
+    features: ['SafeBand Device', '2 Scent Capsules', 'All Safety Features', 'Save €3'],
     color: 'from-purple-500 to-purple-700',
     popular: true,
   },
   {
-    id: 'safeband-ultra',
-    name: 'SafeBand Ultra',
-    price: '$299',
-    description: 'Ultimate protection with premium features and extended battery.',
-    features: ['All Pro Features', 'Two-Way Audio', 'Temperature Alert', '30-Day Battery'],
+    id: 'safeband-bundle-3',
+    name: 'SafeBand + 3 Scents',
+    price: '€74.99',
+    description: 'SafeBand with 3 scent capsules for more variety.',
+    features: ['SafeBand Device', '3 Scent Capsules', 'More Variety', 'Save €5'],
     color: 'from-pink-500 to-pink-700',
+  },
+  {
+    id: 'safeband-bundle-4',
+    name: 'SafeBand + 4 Scents',
+    price: '€81.99',
+    description: 'Ultimate bundle with 4 scent capsules.',
+    features: ['SafeBand Device', '4 Scent Capsules', 'Maximum Variety', 'Save €8'],
+    color: 'from-cyan-500 to-teal-700',
   },
 ]
 
@@ -96,7 +104,7 @@ export function ProductsSection() {
   const isInView = useInView(ref, { once: true })
 
   return (
-    <section ref={ref} className="pt-20 pb-8 bg-transparent">
+    <section ref={ref} className="pt-32 pb-32 bg-transparent">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -117,7 +125,7 @@ export function ProductsSection() {
           </div>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {products.map((product, index) => (
             <ProductCard key={index} product={product} index={index} />
           ))}

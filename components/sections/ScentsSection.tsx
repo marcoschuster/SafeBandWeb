@@ -61,18 +61,13 @@ const scents = [
 
 export function ScentsSection() {
     const ref = useRef(null)
-    const isInView = useInView(ref, { once: true, margin: "-100px" })
+    const isInView = useInView(ref, { once: true, margin: "0px" })
 
     return (
-        <section id="scents" className="py-24 relative overflow-hidden">
+        <section id="scents" className="py-32 relative overflow-hidden bg-gray-50/50">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-                    transition={{ duration: 0.8 }}
-                    className="text-center mb-20"
-                >
-                    <div className="inline-block rounded-3xl bg-white/80 px-8 py-6 shadow-sm border border-white/40">
+                <div className="text-center mb-12">
+                    <div className="inline-block rounded-3xl bg-white px-8 py-6 shadow-lg border border-gray-300">
                         <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
                             The Scent
                             <span className="block bg-gradient-to-r from-cyan-600 to-cyan-400 bg-clip-text text-transparent">
@@ -83,18 +78,14 @@ export function ScentsSection() {
                             Each SafeBand can be customized with our proprietary scent pods, designed to enhance your mood and protect your environment.
                         </p>
                     </div>
-                </motion.div>
+                </div>
 
                 <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6">
                     {scents.map((scent, index) => (
                         <Link key={scent.id} href={`/products/${scent.id}`}>
-                            <motion.div
+                            <div
                                 id={scent.id}
-                                initial={{ opacity: 0, scale: 0.9 }}
-                                animate={isInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.9 }}
-                                transition={{ duration: 0.5, delay: index * 0.1 }}
-                                whileHover={{ y: -10 }}
-                                className="group h-full bg-white/40 backdrop-blur-xl rounded-3xl p-6 border border-white/20 shadow-lg hover:shadow-2xl transition-all duration-300"
+                                className="group h-full bg-white rounded-3xl p-6 border-2 border-gray-300 shadow-xl hover:shadow-2xl transition-all duration-300 hover:-translate-y-2"
                             >
                                 <div className={`w-36 h-36 rounded-2xl bg-gradient-to-br ${scent.color} mb-6 flex items-center justify-center text-white shadow-lg group-hover:scale-110 transition-transform duration-300 overflow-hidden`}>
                                     {scent.image ? (
@@ -127,7 +118,7 @@ export function ScentsSection() {
                                         </span>
                                     ))}
                                 </div>
-                            </motion.div>
+                            </div>
                         </Link>
                     ))}
                 </div>

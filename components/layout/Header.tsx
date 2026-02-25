@@ -25,7 +25,17 @@ const navigation = [
       { name: 'Discord', href: 'https://discord.gg/RxZpaUJM', description: 'Join our official Discord server to chat with the community' },
     ]
   },
-  { name: 'Use Cases', href: '#use-cases' },
+  {
+    name: 'Use Cases',
+    href: '#use-cases',
+    dropdown: [
+      { name: 'Mosquito Repellent', href: '/use-cases/mosquito-repellent', description: 'Natural protection against mosquitoes and insects' },
+      { name: 'Aromatherapy Scents', href: '/use-cases/aromatherapy', description: 'Customize your mood with premium scent capsules' },
+      { name: 'SOS Emergency Button', href: '/use-cases/sos-emergency', description: 'One-touch emergency alert system' },
+      { name: 'Heart Rate Monitor', href: '/use-cases/heart-rate', description: 'Continuous health monitoring and alerts' },
+      { name: 'GPS Tracking', href: '/use-cases/gps-tracking', description: 'Real-time location tracking for safety' },
+    ]
+  },
   {
     name: 'Docs',
     href: '#docs',

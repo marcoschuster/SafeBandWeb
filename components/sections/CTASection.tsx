@@ -10,7 +10,7 @@ export function CTASection() {
   const isInView = useInView(ref, { once: true })
 
   return (
-    <section ref={ref} className="relative py-20 overflow-hidden">
+    <section ref={ref} className="relative py-32 overflow-hidden">
       {/* Background gradient */}
       <div className="absolute inset-0 bg-gradient-to-br from-cyan-600 via-cyan-500 to-teal-500" />
       
