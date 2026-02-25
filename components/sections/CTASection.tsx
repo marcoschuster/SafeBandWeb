@@ -37,14 +37,12 @@ export function CTASection() {
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.8 }}
         >
-          <div className="inline-block rounded-3xl bg-white/80 px-8 py-6 shadow-sm border border-white/40 mb-8">
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              Ready to Feel Safer?
-            </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-              Join thousands of people who trust SafeBand for their safety every day. Get started with free shipping and a 30-day guarantee.
-            </p>
-          </div>
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+            Ready to Feel Safer?
+          </h2>
+          <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
+            Join thousands of people who trust SafeBand for their safety every day. Get started with free shipping and a 30-day guarantee.
+          </p>
 
           <motion.div
             className="flex flex-col sm:flex-row gap-4 justify-center items-center"
