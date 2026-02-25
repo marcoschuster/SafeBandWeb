@@ -27,7 +27,7 @@ export default function SOSEmergencyPage() {
               Press Once. Help Arrives.
             </h2>
             <p className="text-xl text-gray-700">
-              In an emergency, every second counts. SafeBand's SOS button instantly alerts your emergency contacts, local authorities, and emergency services with your exact location and vital information.
+              In an emergency, every second counts. SafeBand&apos;s SOS button instantly alerts your emergency contacts, local authorities, and emergency services with your exact location and vital information.
             </p>
           </div>
         </div>
@@ -234,7 +234,7 @@ export default function SOSEmergencyPage() {
             Your Safety, Our Priority
           </h2>
           <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
-            Don't wait for an emergency. Be prepared with SafeBand's one-touch SOS system today.
+            Don&apos;t wait for an emergency. Be prepared with SafeBand&apos;s one-touch SOS system today.
           </p>
           <Link
             href="/#products"

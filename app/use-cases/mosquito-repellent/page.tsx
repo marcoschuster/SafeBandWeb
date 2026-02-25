@@ -94,7 +94,7 @@ export default function MosquitoRepellentPage() {
               <div className="text-4xl mb-4">🌍</div>
               <h3 className="text-xl font-bold text-gray-900 mb-3">Eco-Friendly</h3>
               <p className="text-gray-600">
-                Sustainable ingredients and biodegradable packaging that's kind to the environment.
+                Sustainable ingredients and biodegradable packaging that&apos;s kind to the environment.
               </p>
             </div>
 

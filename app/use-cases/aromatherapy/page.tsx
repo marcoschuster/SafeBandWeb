@@ -73,10 +73,10 @@ export default function AromatherapyPage() {
               The Science of Aromatherapy
             </h2>
             <p className="text-lg text-gray-700 mb-6">
-              Aromatherapy is a holistic healing treatment that uses natural plant extracts and essential oils to promote health and well-being. When inhaled, these aromatic compounds stimulate the olfactory system, which is directly connected to the brain's limbic system—the area responsible for emotions, memories, and mood regulation.
+              Aromatherapy is a holistic healing treatment that uses natural plant extracts and essential oils to promote health and well-being. When inhaled, these aromatic compounds stimulate the olfactory system, which is directly connected to the brain&apos;s limbic system—the area responsible for emotions, memories, and mood regulation.
             </p>
             <p className="text-lg text-gray-700">
-              SafeBand's aromatherapy capsules deliver these benefits wherever you go, allowing you to customize your emotional and mental state throughout the day.
+              SafeBand&apos;s aromatherapy capsules deliver these benefits wherever you go, allowing you to customize your emotional and mental state throughout the day.
             </p>
           </div>
         </div>
@@ -193,7 +193,7 @@ export default function AromatherapyPage() {
             Start Your Aromatherapy Journey
           </h2>
           <p className="text-xl text-white/90 mb-8 max-w-2xl mx-auto">
-            Experience the transformative power of aromatherapy with SafeBand's premium scent collection.
+            Experience the transformative power of aromatherapy with SafeBand&apos;s premium scent collection.
           </p>
           <Link
             href="/#scents"

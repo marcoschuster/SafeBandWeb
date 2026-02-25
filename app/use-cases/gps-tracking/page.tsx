@@ -27,7 +27,7 @@ export default function GPSTrackingPage() {
               Always Know Where They Are
             </h2>
             <p className="text-xl text-gray-700">
-              SafeBand's advanced GPS tracking provides real-time location updates with accuracy down to 5 meters. Whether it's your child walking home from school, an elderly parent running errands, or a loved one traveling, you'll have peace of mind knowing their exact location.
+              SafeBand&apos;s advanced GPS tracking provides real-time location updates with accuracy down to 5 meters. Whether it&apos;s your child walking home from school, an elderly parent running errands, or a loved one traveling, you&apos;ll have peace of mind knowing their exact location.
             </p>
           </div>
         </div>
@@ -66,7 +66,7 @@ export default function GPSTrackingPage() {
               <div className="text-4xl mb-4">🏠</div>
               <h3 className="text-xl font-bold text-gray-900 mb-3">Geo-Fencing</h3>
               <p className="text-gray-600">
-                Set safe zones and receive alerts when they're entered or left.
+                Set safe zones and receive alerts when they&apos;re entered or left.
               </p>
             </div>
 
@@ -146,7 +146,7 @@ export default function GPSTrackingPage() {
               <div className="text-5xl mb-4">👶</div>
               <h3 className="text-xl font-bold text-gray-900 mb-3">Parents</h3>
               <p className="text-gray-600 mb-4">
-                Track your children's location when they're at school, playing outside, or with friends.
+                Track your children&apos;s location when they&apos;re at school, playing outside, or with friends.
               </p>
               <ul className="space-y-2 text-sm text-gray-600">
                 <li>✓ School arrival/departure alerts</li>
